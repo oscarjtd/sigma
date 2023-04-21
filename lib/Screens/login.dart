@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:pasantia/Screens/Home.dart';
+import 'package:pasantia/main.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -15,7 +16,6 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   final _loginFormKey = GlobalKey<FormState>();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +39,7 @@ class _LoginState extends State<Login> {
                           children: [
                             Icon(
                               Icons.login_sharp,
-                              size: 100,
+                              size: MyApp.size,
                             ),
                             SizedBox(
                               height: 60,
