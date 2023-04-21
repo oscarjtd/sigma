@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return  MaterialApp(
       home: const MainPage(),
       routes: <String, WidgetBuilder>{
-        MainPage.routeName: (BuildContext context) => const MainPage(),
+        MainPage.routeName: (BuildContext context) =>  const MainPage(),
       }
     );
   }

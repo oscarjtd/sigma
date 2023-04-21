@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper_view/flutter_swiper_view.dart';
+import 'package:pasantia/Screens/Home.dart';
 
 class NavBar extends StatefulWidget {
   const NavBar({super.key});
@@ -75,7 +76,10 @@ Widget _navBarOption(int indexoption) {
         return ListTile(
           title: Text(test[indexoption][index]),
           onTap: () {
-            
+            MainPage.items.clear();
+            MainPage.items.addAll(test[indexoption]);
+            Navigator.pushNamed(context, MainPage.routeName);
+            print(test[indexoption][index]);
           },
         );
       },
