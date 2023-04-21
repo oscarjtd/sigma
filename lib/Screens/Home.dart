@@ -12,33 +12,27 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: SizedBox(
-        width: double.infinity,
-        height: double.infinity,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(
-              height: 300,
-              width: 300,
-              child: ListView.builder(
-                itemCount: MainPage.items.length,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    title: Text(MainPage.items[index]),
-                    onTap: () {},
-                  );
-                },
-              ),
+      body: Row(
+        children: [
+           Expanded(
+            flex: size.width > 1340 ? 1 : 2,
+            child: const NavBar(),
+          ),
+          Expanded(
+            flex: size.width > 1340 ? 4 : 6,
+            child: ListView.builder(
+              itemCount: MainPage.items.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(MainPage.items[index]),
+                  onTap: () {},
+                );
+              },
             ),
-          ],
-        ),
-      ),
-      drawer: NavBar(),
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
+          ),
+        ],
       ),
     );
   }
