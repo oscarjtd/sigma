@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper_view/flutter_swiper_view.dart';
-import 'package:pasantia/Screens/Home.dart';
+import '../screens/main/home.dart';
 
 class NavBar extends StatefulWidget {
   const NavBar({super.key});

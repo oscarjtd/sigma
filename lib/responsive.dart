@@ -7,12 +7,11 @@ class Resposive extends StatelessWidget {
   final Widget tablet;
   final Widget mobile;
 
-  const Resposive({
-    required Key key,
-    required this.desktop,
-    required this.tablet,
-    required this.mobile,
-  }) : super(key: key);
+  const Resposive(
+      {required this.desktop,
+      required this.tablet,
+      required this.mobile,
+      super.key});
 
   static bool isDesktop(BuildContext context) =>
       MediaQuery.of(context).size.width >= 1100;
