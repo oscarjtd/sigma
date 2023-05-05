@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pasantia/Screens/Home.dart';
+import 'package:pasantia/Screens/home.dart';
 import 'package:pasantia/Screens/login.dart';
 
 void main() {

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_swiper_view/flutter_swiper_view.dart';
-import 'package:pasantia/Screens/Home.dart';
+import 'package:pasantia/Screens/home.dart';
+import 'package:pasantia/responsive.dart';
 
 class NavBar extends StatefulWidget {
   const NavBar({super.key});
+  static List<bool> _isOpen = [false, false, false];
 
   @override
   State<NavBar> createState() => _NavBarState();
@@ -15,74 +16,151 @@ class _NavBarState extends State<NavBar> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+        backgroundColor: Colors.white,
         child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                if (Responsive.isMobile(context)) const CloseButton(),
+              ],
+            ),
+            const SizedBox(
+              height: 50,
+            ),
+            _buildEPList(),
+          ],
+        ));
+  }
+
+  ExpansionPanelList _buildEPList() {
+    return ExpansionPanelList(
       children: [
-        Container(
-          width: double.infinity,
-          height: 250.0,
-          child: Swiper(
-            itemBuilder: (context, index) {
-              return Center(
-                child: Text("Opcion ${index + 1}"),
-              );
-            },
-            itemCount: 3,
-            pagination: const SwiperPagination(),
-            control: const SwiperControl(color: Colors.green),
-            onIndexChanged: (value) {
-              setState(() {
-                optionsIndex = value;
-              });
-            },
+        ExpansionPanel(
+          backgroundColor: Colors.white,
+          headerBuilder: (context, isOpen) {
+            return const ListTile(
+              title: Text(
+                "Usuario",
+              ),
+              leading: Icon(Icons.supervised_user_circle_outlined),
+            );
+          },
+          isExpanded: NavBar._isOpen[0],
+          body: SizedBox(
+            height: 200,
+            child: Column(
+              children: [
+                Expanded(
+                    child: ListTile(
+                  onTap: () => LTonTap("Usuario", "uno"),
+                  title: const Text("Opcion 1"),
+                )),
+                Expanded(
+                    child: ListTile(
+                  onTap: () => LTonTap("Usuario","dos"),
+                  title: Text("Opcion 2"),
+                )),
+                Expanded(
+                    child: ListTile(
+                  onTap: () => LTonTap("Usuario", "tres"),
+                  title: Text("Opcion 3"),
+                )),
+              ],
+            ),
           ),
         ),
-        _navBarOption(optionsIndex)
-      ],
-    ));
-  }
-}
-
-Widget _Swiper() {
-  return Container(
-    width: double.infinity,
-    height: 250.0,
-    child: Swiper(
-      itemBuilder: (context, index) {
-        return Center(
-          child: Text("Opcion ${index + 1}"),
-        );
-      },
-      itemCount: 3,
-      pagination: const SwiperPagination(),
-      control: const SwiperControl(color: Colors.green),
-      onIndexChanged: (value) {},
-    ),
-  );
-}
-
-List test = [
-  ["Opcion 1", "Opcion 1", "Opcion 1", "Opcion 1"],
-  ["Opcion 2", "Opcion 2", "Opcion 2", "Opcion 2"],
-  ["Opcion 3", "Opcion 3", "Opcion 3", "Opcion 3"]
-];
-
-Widget _navBarOption(int indexoption) {
-  return SizedBox(
-    height: 300,
-    width: 300,
-    child: ListView.builder(
-      itemCount: test.length,
-      itemBuilder: (context, index) {
-        return ListTile(
-          title: Text(test[indexoption][index]),
-          onTap: () {
-            MainPage.items.clear();
-            MainPage.items.addAll(test[indexoption]);
-            Navigator.pushNamed(context, MainPage.routeName);
-            print(test[indexoption][index]);
+        ExpansionPanel(
+          backgroundColor: Colors.white,
+          headerBuilder: (context, isOpen) {
+            return const ListTile(
+              title: Text(
+                "Administrador",
+              ),
+              leading: Icon(Icons.admin_panel_settings),
+            );
           },
-        );
+          isExpanded: NavBar._isOpen[1],
+          body: SizedBox(
+            height: 200,
+            child: Column(
+              children: [
+                Expanded(
+                    child: ListTile(
+                  onTap: () => LTonTap("Admin", "uno"),
+                  title: Text("Opcion 1"),
+                )),
+                Expanded(
+                    child: ListTile(
+                  onTap: () => LTonTap("Admin", "dos"),
+                  title: Text("Opcion 2"),
+                )),
+                Expanded(
+                    child: ListTile(
+                  onTap: () => LTonTap("Admin","tres"),
+                  title: Text("Opcion 3"),
+                )),
+              ],
+            ),
+          ),
+        ),
+        ExpansionPanel(
+          backgroundColor: Colors.white,
+          headerBuilder: (context, isOpen) {
+            return const ListTile(
+              title: Text(
+                "Estudiante",
+              ),
+              leading: Icon(Icons.circle_notifications_outlined),
+            );
+          },
+          isExpanded: NavBar._isOpen[2],
+          body: SizedBox(
+            height: 200,
+            child: Column(
+              children: [
+                Expanded(
+                    child: ListTile(
+                  onTap: () => LTonTap("Estudiante", "uno"),
+                  title: Text("Opcion 1"),
+                )),
+                Expanded(
+                    child: ListTile(
+                  onTap: () => LTonTap("Estudiante", "dos"),
+                  title: Text("Opcion 2"),
+                )),
+                Expanded(
+                    child: ListTile(
+                  onTap: () => LTonTap("Estudiante","tres"),
+                  title: Text("Opcion 3"),
+                )),
+              ],
+            ),
+          ),
+        ),
+      ],
+      expansionCallback: (i, isOpen) {
+        setState(() {
+          NavBar._isOpen[i] = !isOpen;
+        });
       },
-    ),
-  );
+    );
+  }
+
+  void LTonTap(String option, String numero) {
+    Navigator.pushReplacement(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation1, animation2) => const MainPage(),
+        transitionDuration: Duration.zero,
+        reverseTransitionDuration: Duration.zero,
+      ),
+    );
+    MainPage.items = [
+      "Prueba ${numero} ${option}",
+      "Prueba ${numero} ${option}",
+      "Prueba ${numero} ${option}",
+      "Prueba ${numero} ${option}"
+    ];
+  }
 }

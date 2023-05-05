@@ -39,7 +39,7 @@ class _LoginState extends State<Login> {
                           children: [
                             Icon(
                               Icons.login_sharp,
-                              size: MyApp.size,
+                              size: 100,
                             ),
                             SizedBox(
                               height: 60,

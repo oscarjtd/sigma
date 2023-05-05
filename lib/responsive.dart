@@ -2,17 +2,19 @@
 
 import 'package:flutter/material.dart';
 
-class Resposive extends StatelessWidget {
-  final Widget desktop;
+class Responsive extends StatelessWidget {
+ 
   final Widget tablet;
   final Widget mobile;
+  final Widget desktop;
 
-  const Resposive({
-    required Key key,
-    required this.desktop,
+  const Responsive({
+  
     required this.tablet,
     required this.mobile,
-  }) : super(key: key);
+    required this.desktop,
+    super.key,
+  });
 
   static bool isDesktop(BuildContext context) =>
       MediaQuery.of(context).size.width >= 1100;
