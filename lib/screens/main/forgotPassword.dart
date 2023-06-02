@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:pasantia/screens/main/components/forgotPasswordDesktop.dart';
 import 'package:pasantia/screens/main/components/forgotPasswordMobile.dart';
 import 'package:pasantia/screens/main/components/forgotPasswordTablet.dart';
@@ -20,7 +18,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
   Widget build(BuildContext context) {
     final _size = MediaQuery.of(context).size;
     return const Scaffold(
-        body: Resposive(
+        body: Responsive(
             desktop: Expanded(flex: 1, child: ForgotPasswordDesktop()),
             tablet: Expanded(flex: 1, child: ForgotPasswordTablet()),
             mobile: Expanded(flex: 1, child: ForgotPasswordMobile())));

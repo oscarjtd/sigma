@@ -42,9 +42,10 @@ class _LoginGeneralState extends State<LoginGeneral> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    const Icon(
-                      Icons.access_alarm_outlined,
-                      size: 50,
+                    Image.asset(
+                      '../../assets/images/logo.png',
+                      width: 200,
+                      height: 200,
                     ),
                     const SizedBox(height: 35),
                     Form(
@@ -187,75 +188,67 @@ _showEmailPasswordModalDialog(context) {
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
           child: Container(
-            constraints: BoxConstraints(maxHeight: 350, maxWidth: 500),
-            child: Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.safety_check_outlined,
-                    size: 50,
+            constraints: BoxConstraints(maxHeight: 300, maxWidth: 500),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 50, right: 50),
+                  child: Text(
+                    "Ingrese su correo para enviarle los pasos a seguir para recuperar la contraseña",
+                    style: TextStyle(fontSize: 15, fontStyle: FontStyle.italic),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(30),
-                    child: Text(
-                      "Por favor, ingrese su correo para enviarle los pasos a seguir para recuperar la contraseña",
-                      style:
-                          TextStyle(fontSize: 15, fontStyle: FontStyle.italic),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(30),
-                    child: TextField(
-                      autofocus: false,
-                      style:
-                          const TextStyle(fontSize: 15.0, color: Colors.black),
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: 'Correo Electronico',
-                        filled: true,
-                        fillColor: Colors.grey,
-                        contentPadding: const EdgeInsets.only(
-                            left: 14.0, bottom: 6.0, top: 8.0),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(color: Colors.red),
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide: const BorderSide(color: Colors.grey),
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 50, right: 50, top: 40),
+                  child: TextField(
+                    autofocus: false,
+                    style: const TextStyle(fontSize: 15.0, color: Colors.black),
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintText: 'Correo Electronico',
+                      filled: true,
+                      fillColor: Colors.grey,
+                      contentPadding: const EdgeInsets.only(
+                          left: 14.0, bottom: 6.0, top: 8.0),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(color: Colors.red),
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      enabledBorder: UnderlineInputBorder(
+                        borderSide: const BorderSide(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(10.0),
                       ),
                     ),
                   ),
-                  Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: SizedBox(
-                        height: 50,
-                        width: double.infinity,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            Navigator.popAndPushNamed(context, '/MainPage');
-                          },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor:
-                                const Color.fromARGB(200, 168, 207, 69),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: new BorderRadius.circular(18.0),
-                                side: const BorderSide(
-                                  color: Color.fromARGB(200, 168, 207, 69),
-                                )),
-                          ),
-                          child: const Text(
-                            'Enviar',
-                            style: TextStyle(color: Colors.white),
-                          ),
+                ),
+                Padding(
+                    padding:
+                        const EdgeInsets.only(left: 50, right: 50, top: 30),
+                    child: SizedBox(
+                      height: 50,
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.popAndPushNamed(context, '/MainPage');
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor:
+                              const Color.fromARGB(200, 168, 207, 69),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: new BorderRadius.circular(18.0),
+                              side: const BorderSide(
+                                color: Color.fromARGB(200, 168, 207, 69),
+                              )),
                         ),
-                      )),
-                ],
-              ),
+                        child: const Text(
+                          'Enviar',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    )),
+              ],
             ),
           ),
         );

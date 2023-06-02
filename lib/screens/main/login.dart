@@ -24,7 +24,7 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     final _size = MediaQuery.of(context).size;
     return Scaffold(
-        body: Resposive(
+        body: Responsive(
             desktop: LoginDesktop(),
             tablet: LoginTablet(),
             mobile: LoginMobile()));
