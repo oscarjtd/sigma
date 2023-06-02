@@ -54,17 +54,17 @@ class _NavBarState extends State<NavBar> {
               children: [
                 Expanded(
                     child: ListTile(
-                  onTap: () => LTonTap("Usuario", "uno"),
+                  onTap: () => LTonTap("Usuario", "uno","test"),
                   title: const Text("Opcion 1"),
                 )),
                 Expanded(
                     child: ListTile(
-                  onTap: () => LTonTap("Usuario","dos"),
+                  onTap: () => LTonTap("Usuario","dos",""),
                   title: Text("Opcion 2"),
                 )),
                 Expanded(
                     child: ListTile(
-                  onTap: () => LTonTap("Usuario", "tres"),
+                  onTap: () => LTonTap("Usuario", "tres",""),
                   title: Text("Opcion 3"),
                 )),
               ],
@@ -88,17 +88,17 @@ class _NavBarState extends State<NavBar> {
               children: [
                 Expanded(
                     child: ListTile(
-                  onTap: () => LTonTap("Admin", "uno"),
+                  onTap: () => LTonTap("Admin", "uno",""),
                   title: Text("Opcion 1"),
                 )),
                 Expanded(
                     child: ListTile(
-                  onTap: () => LTonTap("Admin", "dos"),
+                  onTap: () => LTonTap("Admin", "dos",""),
                   title: Text("Opcion 2"),
                 )),
                 Expanded(
                     child: ListTile(
-                  onTap: () => LTonTap("Admin","tres"),
+                  onTap: () => LTonTap("Admin","tres",""),
                   title: Text("Opcion 3"),
                 )),
               ],
@@ -122,17 +122,17 @@ class _NavBarState extends State<NavBar> {
               children: [
                 Expanded(
                     child: ListTile(
-                  onTap: () => LTonTap("Estudiante", "uno"),
+                  onTap: () => LTonTap("Estudiante", "uno",""),
                   title: Text("Opcion 1"),
                 )),
                 Expanded(
                     child: ListTile(
-                  onTap: () => LTonTap("Estudiante", "dos"),
+                  onTap: () => LTonTap("Estudiante", "dos",""),
                   title: Text("Opcion 2"),
                 )),
                 Expanded(
                     child: ListTile(
-                  onTap: () => LTonTap("Estudiante","tres"),
+                  onTap: () => LTonTap("Estudiante","tres",""),
                   title: Text("Opcion 3"),
                 )),
               ],
@@ -148,7 +148,7 @@ class _NavBarState extends State<NavBar> {
     );
   }
 
-  void LTonTap(String option, String numero) {
+  void LTonTap(String option, String numero, String form) {
     Navigator.pushReplacement(
       context,
       PageRouteBuilder(
@@ -157,6 +157,7 @@ class _NavBarState extends State<NavBar> {
         reverseTransitionDuration: Duration.zero,
       ),
     );
+    MainPage.testform = form;
     MainPage.items = [
       "Prueba ${numero} ${option}",
       "Prueba ${numero} ${option}",

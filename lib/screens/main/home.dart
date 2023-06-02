@@ -2,15 +2,17 @@
 
 import 'package:flutter/material.dart';
 import 'package:pasantia/Widgets/NavBar.dart';
+import 'package:pasantia/Widgets/testForm.dart';
 import 'package:pasantia/responsive.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
   static String routeName = "/MainPage";
+  static String testform = "";
   static List items = ["", "", "", ""];
+  
   @override
   State<MainPage> createState() => _MainPageState();
-  
 }
 
 class _MainPageState extends State<MainPage> {
@@ -65,22 +67,29 @@ class _HomepageBodyState extends State<HomepageBody> {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-        gradient: LinearGradient(colors: [
-                  Color.fromARGB(255, 0, 120, 131),
-                  Color.fromARGB(255, 17, 65, 86),
-                ]),
+          gradient: LinearGradient(colors: [
+            Color.fromARGB(255, 188, 217, 219),
+            Color.fromARGB(255, 97, 130, 145),
+          ]),
           image: DecorationImage(
-          opacity: 0.2,
-        image: AssetImage("images/background.png"),
-        fit: BoxFit.cover,
-      )),
+            opacity: 0.1,
+            image: AssetImage("images/background.png"),
+            fit: BoxFit.cover,
+          )),
       child: ListView.builder(
         itemCount: MainPage.items.length,
         itemBuilder: (context, index) {
-          return ListTile(
-            title: Text(MainPage.items[index], style: TextStyle(color: Colors.white),),
-            onTap: () {},
-          );
+          if (MainPage.testform== "") {
+            return ListTile(
+              title: Text(
+                MainPage.items[index],
+                style: TextStyle(color: Colors.white),
+              ),
+              onTap: () {},
+            );
+          }else{ return SizedBox(height: 300, child: SimpleForm());}
+           
+          
         },
       ),
     );
