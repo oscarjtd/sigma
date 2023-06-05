@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pasantia/screens/main/home.dart';
-import 'screens/main/login.dart';
+import 'package:pasantia/screens/main/login.dart';
+
+import 'screens/main/home.dart';
 
 void main() {
   runApp(const MyApp());
