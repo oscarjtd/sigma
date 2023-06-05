@@ -157,9 +157,6 @@ class _NavBarState extends State<NavBar> {
     MainPage.testform = form;
     MainPage.items = [
       "Prueba ${numero} ${option}",
-      "Prueba ${numero} ${option}",
-      "Prueba ${numero} ${option}",
-      "Prueba ${numero} ${option}"
     ];
   }
 }
