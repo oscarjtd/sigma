@@ -18,7 +18,12 @@ class _LoginTabletState extends State<LoginTablet> {
         Expanded(
             flex: 1,
             child: Container(
-              color: Colors.blueGrey,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("../../assets/images/fondo.jpg"),
+                  fit: BoxFit.cover,
+                ),
+              ),
             )),
         const Expanded(flex: 1, child: LoginGeneral())
       ],

@@ -3,13 +3,11 @@
 import 'package:flutter/material.dart';
 
 class Responsive extends StatelessWidget {
- 
   final Widget tablet;
   final Widget mobile;
   final Widget desktop;
 
   const Responsive({
-  
     required this.tablet,
     required this.mobile,
     required this.desktop,

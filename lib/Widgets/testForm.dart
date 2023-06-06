@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 class SimpleForm extends StatefulWidget {
@@ -10,61 +12,44 @@ class _SimpleFormState extends State<SimpleForm> {
   final _formKey = GlobalKey<FormState>();
   String _name = "";
 
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.all(16.0),
+    return Padding(
+        padding: EdgeInsets.all(60.0),
         child: Form(
-          key: _formKey,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              TextFormField(
-                decoration: InputDecoration(
-                  labelText: 'Name',
+            key: _formKey,
+            child: Column(children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 60, right: 60),
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide:
+                            BorderSide(width: 2, color: Colors.greenAccent)),
+                    labelText: 'Nombre',
+                  ),
                 ),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Please enter your name';
-                  }
-                  return null;
-                },
-                onSaved: (value) {
-                  _name = value!;
-                },
-              ),
-              TextFormField(
-                decoration: InputDecoration(
-                  labelText: 'Email',
-                ),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Please enter your email';
-                  } else if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
-                      .hasMatch(value)) {
-                    return 'Please enter a valid email address';
-                  }
-                  return null;
-                },
-                onSaved: (value) {
-                  _email = value!;
-                },
               ),
               SizedBox(height: 16.0),
-              TextButton(
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    _formKey.currentState!.save();
-                    // TODO: submit data to backend or handle it as desired
-                  }
-                },
-                child: Text('Submit'),
+              SizedBox(
+                height: 50,
+                width: 200,
+                child: ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color.fromARGB(199, 47, 158, 178),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(18.0),
+                        side: const BorderSide(
+                          color: Color.fromARGB(199, 60, 99, 218),
+                        )),
+                  ),
+                  child: const Text(
+                    'Enviar',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
               ),
-            ],
-          ),
-        ),
-      ),
-    );
+            ])));
   }
 }

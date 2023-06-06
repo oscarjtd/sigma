@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_swiper_view/flutter_swiper_view.dart';
 import 'package:pasantia/responsive.dart';
+
 import '../screens/main/home.dart';
 
 class NavBar extends StatefulWidget {
@@ -25,9 +25,6 @@ class _NavBarState extends State<NavBar> {
               children: [
                 if (Responsive.isMobile(context)) const CloseButton(),
               ],
-            ),
-            const SizedBox(
-              height: 50,
             ),
             _buildEPList(),
           ],
@@ -54,17 +51,17 @@ class _NavBarState extends State<NavBar> {
               children: [
                 Expanded(
                     child: ListTile(
-                  onTap: () => LTonTap("Usuario", "uno","test"),
+                  onTap: () => LTonTap("Usuario", "uno", "test"),
                   title: const Text("Opcion 1"),
                 )),
                 Expanded(
                     child: ListTile(
-                  onTap: () => LTonTap("Usuario","dos",""),
+                  onTap: () => LTonTap("Usuario", "dos", ""),
                   title: Text("Opcion 2"),
                 )),
                 Expanded(
                     child: ListTile(
-                  onTap: () => LTonTap("Usuario", "tres",""),
+                  onTap: () => LTonTap("Usuario", "tres", ""),
                   title: Text("Opcion 3"),
                 )),
               ],
@@ -88,17 +85,17 @@ class _NavBarState extends State<NavBar> {
               children: [
                 Expanded(
                     child: ListTile(
-                  onTap: () => LTonTap("Admin", "uno",""),
+                  onTap: () => LTonTap("Admin", "uno", ""),
                   title: Text("Opcion 1"),
                 )),
                 Expanded(
                     child: ListTile(
-                  onTap: () => LTonTap("Admin", "dos",""),
+                  onTap: () => LTonTap("Admin", "dos", ""),
                   title: Text("Opcion 2"),
                 )),
                 Expanded(
                     child: ListTile(
-                  onTap: () => LTonTap("Admin","tres",""),
+                  onTap: () => LTonTap("Admin", "tres", ""),
                   title: Text("Opcion 3"),
                 )),
               ],
@@ -122,17 +119,17 @@ class _NavBarState extends State<NavBar> {
               children: [
                 Expanded(
                     child: ListTile(
-                  onTap: () => LTonTap("Estudiante", "uno",""),
+                  onTap: () => LTonTap("Estudiante", "uno", ""),
                   title: Text("Opcion 1"),
                 )),
                 Expanded(
                     child: ListTile(
-                  onTap: () => LTonTap("Estudiante", "dos",""),
+                  onTap: () => LTonTap("Estudiante", "dos", ""),
                   title: Text("Opcion 2"),
                 )),
                 Expanded(
                     child: ListTile(
-                  onTap: () => LTonTap("Estudiante","tres",""),
+                  onTap: () => LTonTap("Estudiante", "tres", ""),
                   title: Text("Opcion 3"),
                 )),
               ],
@@ -158,6 +155,5 @@ class _NavBarState extends State<NavBar> {
       ),
     );
     MainPage.testform = form;
-
   }
 }

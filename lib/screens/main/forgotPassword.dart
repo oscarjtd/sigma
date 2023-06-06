@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:pasantia/screens/main/components/forgotPasswordDesktop.dart';
 import 'package:pasantia/screens/main/components/forgotPasswordMobile.dart';
 import 'package:pasantia/screens/main/components/forgotPasswordTablet.dart';
