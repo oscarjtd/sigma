@@ -86,17 +86,12 @@ class _NavBarState extends State<NavBar> {
                 Expanded(
                     child: ListTile(
                   onTap: () => LTonTap("Admin", "uno", ""),
-                  title: Text("Opcion 1"),
+                  title: Text("Roles"),
                 )),
                 Expanded(
                     child: ListTile(
                   onTap: () => LTonTap("Admin", "dos", ""),
-                  title: Text("Opcion 2"),
-                )),
-                Expanded(
-                    child: ListTile(
-                  onTap: () => LTonTap("Admin", "tres", ""),
-                  title: Text("Opcion 3"),
+                  title: Text("Alcance"),
                 )),
               ],
             ),
