@@ -8,7 +8,7 @@ import 'package:pasantia/responsive.dart';
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
   static String routeName = "/MainPage";
-  static String testform = "";
+  static var form;
   static List items = ["", "", "", ""];
   
   @override
@@ -67,31 +67,13 @@ class _HomepageBodyState extends State<HomepageBody> {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-          gradient: LinearGradient(colors: [
-            Color.fromARGB(255, 188, 217, 219),
-            Color.fromARGB(255, 97, 130, 145),
-          ]),
+
           image: DecorationImage(
-            opacity: 0.1,
+            opacity: 0,
             image: AssetImage("images/background.png"),
-            fit: BoxFit.cover,
+            fit: BoxFit.fill,
           )),
-      child: ListView.builder(
-        itemCount: MainPage.items.length,
-        itemBuilder: (context, index) {
-          if (MainPage.testform== "") {
-            return ListTile(
-              title: Text(
-                MainPage.items[index],
-                style: TextStyle(color: Colors.white),
-              ),
-              onTap: () {},
-            );
-          }else{ return SizedBox(height: 300, child: SimpleForm());}
-           
-          
-        },
-      ),
+      child: Card(child: MainPage.form ,color: Colors.white, margin: EdgeInsets.all(40),) 
     );
   }
 }

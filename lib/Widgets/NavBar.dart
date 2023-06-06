@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pasantia/Widgets/testForm.dart';
+import 'package:pasantia/Widgets/userFrom.dart';
 import 'package:pasantia/responsive.dart';
 
 import '../screens/main/home.dart';
@@ -51,18 +53,23 @@ class _NavBarState extends State<NavBar> {
               children: [
                 Expanded(
                     child: ListTile(
-                  onTap: () => LTonTap("Usuario", "uno", "test"),
-                  title: const Text("Opcion 1"),
+                  onTap: () => LTonTap(userForm()),
+                  title: const Text("Crear usuario"),
                 )),
                 Expanded(
                     child: ListTile(
-                  onTap: () => LTonTap("Usuario", "dos", ""),
-                  title: Text("Opcion 2"),
+                  onTap: () => LTonTap(""),
+                  title: Text("Modificar Usuario"),
                 )),
                 Expanded(
                     child: ListTile(
-                  onTap: () => LTonTap("Usuario", "tres", ""),
-                  title: Text("Opcion 3"),
+                  onTap: () => LTonTap(""),
+                  title: Text("Eliminar usuario"),
+                )),
+                                Expanded(
+                    child: ListTile(
+                  onTap: () => LTonTap(""),
+                  title: Text("Listar usuarios"),
                 )),
               ],
             ),
@@ -73,7 +80,7 @@ class _NavBarState extends State<NavBar> {
           headerBuilder: (context, isOpen) {
             return const ListTile(
               title: Text(
-                "Administrador",
+                "Scope",
               ),
               leading: Icon(Icons.admin_panel_settings),
             );
@@ -85,18 +92,18 @@ class _NavBarState extends State<NavBar> {
               children: [
                 Expanded(
                     child: ListTile(
-                  onTap: () => LTonTap("Admin", "uno", ""),
-                  title: Text("Opcion 1"),
+                  onTap: () => LTonTap(""),
+                  title: Text("Crear"),
                 )),
                 Expanded(
                     child: ListTile(
-                  onTap: () => LTonTap("Admin", "dos", ""),
-                  title: Text("Opcion 2"),
+                  onTap: () => LTonTap(""),
+                  title: Text("Actualizar"),
                 )),
                 Expanded(
                     child: ListTile(
-                  onTap: () => LTonTap("Admin", "tres", ""),
-                  title: Text("Opcion 3"),
+                  onTap: () => LTonTap(""),
+                  title: Text("Actualizar"),
                 )),
               ],
             ),
@@ -107,7 +114,7 @@ class _NavBarState extends State<NavBar> {
           headerBuilder: (context, isOpen) {
             return const ListTile(
               title: Text(
-                "Estudiante",
+                "Rol",
               ),
               leading: Icon(Icons.circle_notifications_outlined),
             );
@@ -119,18 +126,18 @@ class _NavBarState extends State<NavBar> {
               children: [
                 Expanded(
                     child: ListTile(
-                  onTap: () => LTonTap("Estudiante", "uno", ""),
-                  title: Text("Opcion 1"),
+                  onTap: () => LTonTap( ""),
+                  title: Text("Crear"),
                 )),
                 Expanded(
                     child: ListTile(
-                  onTap: () => LTonTap("Estudiante", "dos", ""),
-                  title: Text("Opcion 2"),
+                  onTap: () => LTonTap(""),
+                  title: Text("Eliminar"),
                 )),
                 Expanded(
                     child: ListTile(
-                  onTap: () => LTonTap("Estudiante", "tres", ""),
-                  title: Text("Opcion 3"),
+                  onTap: () => LTonTap(""),
+                  title: Text("Actualizar"),
                 )),
               ],
             ),
@@ -145,7 +152,7 @@ class _NavBarState extends State<NavBar> {
     );
   }
 
-  void LTonTap(String option, String numero, String form) {
+  void LTonTap(var form) {
     Navigator.pushReplacement(
       context,
       PageRouteBuilder(
@@ -154,6 +161,6 @@ class _NavBarState extends State<NavBar> {
         reverseTransitionDuration: Duration.zero,
       ),
     );
-    MainPage.testform = form;
+    MainPage.form = form;
   }
 }
